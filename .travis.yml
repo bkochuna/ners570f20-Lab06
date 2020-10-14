@@ -1,0 +1,8 @@
+language: cpp
+os: linux
+
+script:
+  - echo $PWD
+  - ls -ahl
+  - which cmake
+  - printenv
