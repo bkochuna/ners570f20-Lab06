@@ -2,7 +2,6 @@ language: cpp
 os: linux
 
 script:
-  - echo $PWD
-  - ls -ahl
-  - which cmake
-  - printenv
+  - echo $PWD && mkdir ../bld && cd ../bld && echo $PWD
+  - cmake ${TRAVIS_BUILD_DIR}
+  - make
