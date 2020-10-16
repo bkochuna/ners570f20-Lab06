@@ -14,5 +14,5 @@ int main() {
     }
     cout << "After scoping unit" << endl;
 
-    return 0
+    return 0;
 }
