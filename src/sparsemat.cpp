@@ -2,7 +2,9 @@
 #include "sparsemat.hpp"
 
 using namespace std;
-using namespace SpMV;
+
+namespace SpMV
+{
 
 //Define the operation for the Constructor
 template <class fp_type>
@@ -20,5 +22,10 @@ template <class fp_type>
 SparseMatrix<fp_type>::~SparseMatrix()
 {
   cout << "Called SparseMatrix<fp_type> destructor" << endl;
+
+}
+
+template class SparseMatrix<float>;
+template class SparseMatrix<double>;
 
 }
