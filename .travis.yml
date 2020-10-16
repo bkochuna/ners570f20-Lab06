@@ -1,0 +1,7 @@
+language: cpp
+os: linux
+
+script:
+  - echo $PWD && mkdir ../build && cd ../build && echo $PWD
+  - cmake ${TRAVIS_BUILD_DIR}
+  - make
