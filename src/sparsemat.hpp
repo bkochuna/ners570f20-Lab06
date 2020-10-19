@@ -20,9 +20,9 @@ class SparseMatrix
 {
 
     private:
-        size_t _nrows = -1;
-        size_t _ncols = -1;
-        size_t _nnz   = -1;
+        size_t _nrows = 0;
+        size_t _ncols = 0;
+        size_t _nnz   = 0;
 
         MatrixState _state = undefined;
 
