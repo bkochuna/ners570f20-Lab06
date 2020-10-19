@@ -11,3 +11,6 @@ set(SpMV_VERSION ${SpMV_MAJOR_VERSION}.${SpMV_MINOR_VERSION}.${SpMV_PATCH_VERSIO
 
 add_subdirectory(src)
 
+enable_testing()
+add_subdirectory(test)
+
