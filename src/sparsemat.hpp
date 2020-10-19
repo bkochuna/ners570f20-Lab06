@@ -35,6 +35,8 @@ class SparseMatrix
         //This is the destructor
        ~SparseMatrix();
 
+        //Set matrix values one at a time
+        void setCoefficient(const size_t row, const size_t col, fp_type aij);
 
         //assembleStorage is a pure virtual function.
         //This means it must be implemented on the subclasses

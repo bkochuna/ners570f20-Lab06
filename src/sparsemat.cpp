@@ -25,6 +25,18 @@ SparseMatrix<fp_type>::~SparseMatrix()
 
 }
 
+
+//Define routine to build up coefficients
+template <class fp_type>
+void SparseMatrix<fp_type>::setCoefficient(const size_t row, const size_t col, const fp_type aij)
+{
+  cout << "Called SparseMatrix<fp_type>::setCoefficients" << endl;
+
+
+}
+
+
+
 template class SparseMatrix<float>;
 template class SparseMatrix<double>;
 
