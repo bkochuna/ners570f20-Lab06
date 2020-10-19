@@ -6,6 +6,15 @@
 namespace SpMV
 {
 
+/* Enumerations for SparseMatrix object state
+ *
+ * undefined   - this state should never be encountered
+ * initialized - state following completion of the constructor
+ * building    - state of object after calling setCoefficients
+ * assembled   - state of object following call to assembleStorage
+ */
+enum MatrixState {undefined,initialized,building,assembled};
+
 template <class fp_type>
 class SparseMatrix
 {
@@ -15,6 +24,7 @@ class SparseMatrix
         size_t _ncols = -1;
         size_t _nnz   = -1;
 
+        MatrixState _state = undefined;
 
         //"private" method for inverse operation of assembleStorage
         virtual void _unAssemble()=0;
