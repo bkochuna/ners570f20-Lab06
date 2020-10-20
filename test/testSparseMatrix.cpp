@@ -10,17 +10,31 @@ class testSpMat : public SpMV::SparseMatrix<fp_type>
         //Define constructor to use base class constructor
         testSpMat(const size_t nrows, const size_t ncols) :
             SpMV::SparseMatrix<fp_type>::SparseMatrix(nrows, ncols)
-            { cout << "testSpMat::subclass constructor" << endl; }
+            { cout << "testSpMat::constructor" << endl; }
+
+       ~testSpMat()
+        {
+            cout << "testSpMat::destructor" << endl;
+        }
 
         void assembleStorage()
-            { cout << "testSpMat::no op assembly storage" << endl; }
+        {
+            cout << this->_buildCoeff[ make_pair(1,1) ] << endl;
+            cout << this->_buildCoeff[ make_pair(1,2) ] << endl;
+            cout << this->_buildCoeff[ make_pair(2,1) ] << endl;
+            cout << this->_buildCoeff[ make_pair(2,2) ] << endl;
+            this->_state = SpMV::assembled;
+        }
 
         fp_type* matVec(const fp_type* x)
         { return NULL; }
 
     private:
         void _unAssemble()
-            { cout << "testSpMat::no op unassemble" << endl; }
+        { 
+            cout << "testSpMat::_unAssemble" << endl;
+            this->_state = SpMV::building;
+        }
 };
 
 
@@ -31,6 +45,16 @@ int main() {
        cout << "Before constructor" << endl;
        //SpMV::SparseMatrix<double> A(100,100);
        testSpMat<double> A(100,100);
+
+       A.setCoefficient(1,1,1.0);
+       A.setCoefficient(1,2,2.0);
+       A.setCoefficient(2,1,3.0);
+
+       A.assembleStorage();
+
+       A.setCoefficient(1,1,4.0);
+       A.assembleStorage();
+
        cout << "After constructor" << endl;
 
     }
