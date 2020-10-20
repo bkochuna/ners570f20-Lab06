@@ -14,6 +14,7 @@ SparseMatrix<fp_type>::SparseMatrix(const size_t nrows, const size_t ncols)
     cout << "Called SparseMatrix<fp_type> constructor" << endl;
     this->_nrows = nrows;
     this->_ncols = ncols;
+    this->_state = initialized;
 
 }
 
@@ -23,7 +24,9 @@ template <class fp_type>
 SparseMatrix<fp_type>::~SparseMatrix()
 {
     cout << "Called SparseMatrix<fp_type> destructor" << endl;
-
+    this->_nrows = 0;
+    this->_ncols = 0;
+    this->_state = undefined;
 }
 
 
