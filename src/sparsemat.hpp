@@ -2,6 +2,9 @@
 #define _SPARSE_MATRIX_
 
 #include <cstddef>
+#include <utility> //for std::pair
+#include <map>     //for std::map
+
 
 namespace SpMV
 {
@@ -15,6 +18,7 @@ namespace SpMV
  */
 enum MatrixState {undefined,initialized,building,assembled};
 
+// SparseMatrix Class definition
 template <class fp_type>
 class SparseMatrix
 {
@@ -25,6 +29,10 @@ class SparseMatrix
         size_t _nnz   = 0;
 
         MatrixState _state = undefined;
+
+        //Use map container accessed by row,col pair to store
+        //coefficients during building state
+        std::map< std::pair<size_t,size_t>, fp_type> _buildCoeff;
 
         //"private" method for inverse operation of assembleStorage
         virtual void _unAssemble()=0;
