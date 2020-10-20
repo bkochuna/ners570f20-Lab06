@@ -36,15 +36,15 @@ void SparseMatrix<fp_type>::setCoefficient(const size_t row, const size_t col, c
 {
     cout << "Called SparseMatrix<fp_type>::setCoefficients" << endl;
 
-  if(this->_state == undefined)
-      throw runtime_error("Cannot set coefficients on undefined state!");
+    if(this->_state == undefined)
+        throw runtime_error("Cannot set coefficients on undefined state!");
 
-  if( this->_state == assembled )
-      this->_unAssemble();
+    if( this->_state == assembled )
+        this->_unAssemble();
 
-  this->_state = building;
+    this->_state = building;
 
-  this->_buildCoeff[ make_pair(row,col) ] = aij;
+    this->_buildCoeff[ make_pair(row,col) ] = aij;
 }
 
 
