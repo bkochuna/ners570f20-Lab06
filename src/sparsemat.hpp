@@ -23,7 +23,7 @@ template <class fp_type>
 class SparseMatrix
 {
 
-    private:
+    protected:
         size_t _nrows = 0;
         size_t _ncols = 0;
         size_t _nnz   = 0;
