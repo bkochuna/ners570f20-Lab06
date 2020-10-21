@@ -9,13 +9,10 @@ namespace SpMV
 
 //Define the operation for the Constructor
 template <class fp_type>
-SparseMatrix<fp_type>::SparseMatrix(const size_t nrows, const size_t ncols)
+SparseMatrix<fp_type>::SparseMatrix(const size_t nrows, const size_t ncols) :
+    _nrows(nrows), _ncols(ncols), _state(initialized)
 {
     cout << "Called SparseMatrix<fp_type> constructor" << endl;
-    this->_nrows = nrows;
-    this->_ncols = ncols;
-    this->_state = initialized;
-
 }
 
 
