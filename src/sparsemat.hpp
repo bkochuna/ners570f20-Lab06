@@ -2,8 +2,10 @@
 #define _SPARSE_MATRIX_
 
 #include <cstddef>
-#include <utility> //for std::pair
 #include <map>     //for std::map
+#include <memory>  //for std::shared_ptr
+#include <utility> //for std::pair
+#include <vector>  //for std::vector
 
 
 namespace SpMV
@@ -38,6 +40,10 @@ class SparseMatrix
         virtual void _unAssemble()=0;
 
     public:
+        // Defines the type of a shared pointer to a vector of elements of
+        // type fp_type as vec_ptr. Used to avoid memory management.
+        using vec_ptr = std::shared_ptr<std::vector<fp_type>>;
+
         //This is the constructor
         SparseMatrix(const size_t nrows, const size_t ncols);
         //This is the destructor
@@ -50,10 +56,12 @@ class SparseMatrix
         //This means it must be implemented on the subclasses
         virtual void assembleStorage()=0;
 
-
         //Interface for matVec y<-A*x
         //also a pure virtual function
-        virtual fp_type*  matVec(const fp_type* x)=0;
+        virtual vec_ptr  matVec(const vec_ptr x)=0;
+        // Overloaded function for matVec interface, converts x into a vec_ptr
+        // and calls the above. Marked final to avoid confusion.
+        virtual vec_ptr  matVec(const fp_type* x) final;
 
 
 };

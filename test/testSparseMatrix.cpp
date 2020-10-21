@@ -7,6 +7,8 @@ template <class fp_type>
 class testSpMat : public SpMV::SparseMatrix<fp_type>
 {
     public:
+        // Define an alias for the gross type that templating produces
+        typedef typename SpMV::SparseMatrix<fp_type>::vec_ptr vec_ptr;
         //Define constructor to use base class constructor
         testSpMat(const size_t nrows, const size_t ncols) :
             SpMV::SparseMatrix<fp_type>::SparseMatrix(nrows, ncols)
@@ -26,7 +28,7 @@ class testSpMat : public SpMV::SparseMatrix<fp_type>
             this->_state = SpMV::assembled;
         }
 
-        fp_type* matVec(const fp_type* x)
+        vec_ptr matVec(const vec_ptr x) override
         { return NULL; }
 
     private:

@@ -44,6 +44,22 @@ void SparseMatrix<fp_type>::setCoefficient(const size_t row, const size_t col, c
     this->_buildCoeff[ make_pair(row,col) ] = aij;
 }
 
+// https://www.techiedelight.com/convert-array-vector-cpp/
+template <class fp_type>
+typename SparseMatrix<fp_type>::vec_ptr SparseMatrix<fp_type>::matVec(const fp_type* x)
+{
+    // Check that pointer is not null
+    if (!x) { throw std::runtime_error("Error: matVec passed nullptr"); }
+    // Get length of array from array size over element size
+    int n = sizeof(x)/sizeof(x[0]);
+    // Construct vector with ranged based constructor
+    std::vector<fp_type> vec(x, x+n);
+    // Construct vec_ptr from vector
+    vec_ptr shared_vec = std::make_shared<vector<fp_type>>(vec);
+    // Call interface function
+    return matVec(shared_vec);
+}
+
 
 
 template class SparseMatrix<float>;
