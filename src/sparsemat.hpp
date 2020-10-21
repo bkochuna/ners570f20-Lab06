@@ -42,7 +42,7 @@ class SparseMatrix
     public:
         // Defines the type of a shared pointer to a vector of elements of
         // type fp_type as vec_ptr. Used to avoid memory management.
-        using vec_ptr = std::shared_ptr<std::vector<fp_type>>;
+        typedef std::shared_ptr<std::vector<fp_type>> vec_ptr;
 
         //This is the constructor
         SparseMatrix(const size_t nrows, const size_t ncols);
