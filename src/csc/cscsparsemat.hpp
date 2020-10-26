@@ -1,10 +1,12 @@
 #include <vector>
 #include <iostream>
+#include "sparsemat.hpp"
 
 using namespace std;
 
-template<typename T>
-class CscSparseMatrix{
+template<class fp_type>
+class cscSparseMatrix : public SpMV::SparseMatrix<fp_type>
+{
     private:
         vector<vector<T>> csc_matrix;
     public:
