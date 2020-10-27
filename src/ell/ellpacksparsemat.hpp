@@ -3,15 +3,17 @@
 
 using namespace std;
 
-template <typename T>
+template <typename fp_type>
 class EllpackSparseMatrix {
 
   private:
-    vector<vector<T>> EllpackMatrix;
+    const
+    vector<vector<fp_type>> EllpackMatrix;
+    vector<vector<fp_type>> EllpackIndexMatrix;
   public:
     // Constructor - receives two inputs: elements array, column index array
     // builds the ellpack
-    EllpackSparseMatrix(const vector<T> & elementVector, const vector<size_t> & colIndex);
+    EllpackSparseMatrix(const size_t nrows, const size_t ncols);
    
     // Destructor
     ~EllpackSparseMatrix()
