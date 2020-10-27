@@ -12,9 +12,14 @@ class ellpackSparseMatrix {
     // Constructor - receives two inputs: elements array, column index array
     // builds the ellpack
     ellpackSparseMatrix(const vector<T> & elementVector, const vector<size_t> & colIndex);
-    
+   
+    // Destructor
+    ~ellpackSparseMatrix()
+ 
+    // Print Matrix
     void printMatrix();
     
+    // Return ellpack matrix
     vector<vector<T>> getEllpackMatrix();
 
 };
