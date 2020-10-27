@@ -11,7 +11,7 @@ class EllpackSparseMatrix {
   public:
     // Constructor - receives two inputs: elements array, column index array
     // builds the ellpack
-    EllpackSparseMatrix(const vector<T> & elementVector, const vector<size_t> & colIndex);
+    EllpackSparseMatrix(const vector<T> & elementVector, const vector<size_t> & colIndex) : public SparseMatrix<T>;
    
     // Destructor
     ~EllpackSparseMatrix()
