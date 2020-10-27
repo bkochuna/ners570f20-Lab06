@@ -10,7 +10,7 @@ EllpackSparseMatrix<fp_type>::EllpackSparseMatrix(const size_t nrows, const size
 {
 	cout << "Called EllpackSparseMatrix<fp_type> constructor" << endl;
 
-	_ellpackMatrix = EllpackSparseMatrix;
+	// _ellpackMatrix = EllpackSparseMatrix; // don't know what this is
 
 };
 
@@ -20,7 +20,7 @@ void EllpackSparseMatrix<fp_type>::setCoefficient(const size_t row, const size_t
 	if (row >= _nrows || col >= _ncolumns)
 	{
 		cout << "Invalid operation, row or column number exceeds size of array" << endl;
-		return 1;
+		throw "Invalid operation, row or column number exceeds size of array";
 	}
 
 	size_t sRowSize = EllpackMatrix[row].size();
@@ -37,13 +37,11 @@ void EllpackSparseMatrix<fp_type>::setCoefficient(const size_t row, const size_t
 			if (EllpackIndexMatrix[row][iI] > col)
 			{
 				EllpackMatrix[row].insert(iI, aij);
-				EllpackIndexMatrix[row].insert(iI, column);
+				EllpackIndexMatrix[row].insert(iI, col);
 				break;
 			}
 		}
 	}
-
-	return 0;
 
 };
 
