@@ -11,10 +11,10 @@ EllpackSparseMatrix<fp_type>::EllpackSparseMatrix(const vector<fp_type> elementV
 
   _ellpackMatrix = EllpackSparseMatrix;
 
-}
+};
 
 template <class fp_type>
 EllpackSparseMatrix<fp_type>::~EllpackSparseMatrix()
 {
   cout << "Called EllpackSparseMatrix<fp_type> destructor" << endl;
-}
+};
