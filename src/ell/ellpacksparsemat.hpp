@@ -15,6 +15,8 @@ class EllpackSparseMatrix {
     // builds the ellpack
     EllpackSparseMatrix(const size_t nrows, const size_t ncols);
     void setCoefficient(const size_t row, const size_t col, fp_type aij);
+
+    fp_type getCoefficient(const size_t row, const size_t col);
    
     // Destructor
     ~EllpackSparseMatrix()

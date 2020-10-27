@@ -32,17 +32,29 @@ void EllpackSparseMatrix<fp_type>::setCoefficient(const size_t row, const size_t
 	}
 	else
 	{
-		for (int iI = 0; iI < sRowSize; iI++)
+		for (size_t sI = 0; sI < sRowSize; sI++)
 		{
-			if (EllpackIndexMatrix[row][iI] > col)
+			if (EllpackIndexMatrix[row][sI] > col)
 			{
-				EllpackMatrix[row].insert(iI, aij);
-				EllpackIndexMatrix[row].insert(iI, col);
+				EllpackMatrix[row].insert(sI, aij);
+				EllpackIndexMatrix[row].insert(sI, col);
 				break;
 			}
 		}
 	}
 
+};
+
+template <class fp_type>
+fp_type EllpackIndexMatrix<fp_type>::getCoefficient(const size_t row, const size_t col)
+{
+	size_t sRow = row;
+	size_t sRowSize = EllpackIndexMatrix[row].size();
+	for (size_t sI = 0; sI < sRowSize; sI++)
+	{
+		if (EllpackIndexMatrix[row][sI] == col) return EllpackMatrix[row][sI];
+	}
+	return 0;
 };
 
 template <class fp_type>
