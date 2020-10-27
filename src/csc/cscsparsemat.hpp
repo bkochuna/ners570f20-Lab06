@@ -12,15 +12,17 @@ class cscSparseMatrix : public SpMV::SparseMatrix<fp_type>
     public:
         typedef typename SpMV::SparseMatrix<fp_type>::vec_ptr vec_ptr;
 
-        //Constructor - receives three inputs: element, col pointer, row idx vectors
-        //Builds CSC sparce matrix based on the input information
+        //Constructor - constructs the child as an instance of the parent class
         cscSparseMatrix(const size_t nrows, const size_t ncols) :
             SpMV::SparseMatrix<fp_type>::SparseMatrix(nrows,ncols)
             { cout << "cscSpMat::constructor" << endl;}
 
-        // Assembles the matrix
+        // Assembles the matrix: Will store the info in _buildCoeff
+        // attribute of the parent class into the child (CSC) class'
+        // attributes elemA, colPointer and rowIdx (or as decided by the
+        // implementation team)
         void assembleStorage()
-        { cout << "cscSpMat::matVec" << endl; }
+        { cout << "cscSpMat::assembleStorage" << endl; }
 
         // Performs matrix-vector multiplication
         vec_ptr matVec(const vec_ptr x) override

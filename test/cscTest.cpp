@@ -3,12 +3,12 @@
 #include "cscsparsemat.hpp"
 
 int main() {
-  cout << "Before scopint unit" << endl;
+  cout << "Before scoping unit" << endl;
   {
     cout << "Before constructor" << endl;
     cscSparseMatrix<double> A(100,100);
-    A.setCoefficient(1,1,1);
 
+    A.setCoefficient(1,1,1);
     A.assembleStorage();
 
     A.setCoefficient(1,1,4);
