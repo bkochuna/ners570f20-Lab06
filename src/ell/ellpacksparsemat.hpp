@@ -4,17 +4,17 @@
 using namespace std;
 
 template <typename T>
-class ellpackSparseMatrix {
+class EllpackSparseMatrix {
 
   private:
-    vector<vector<T>> ellpackMatrix;
+    vector<vector<T>> EllpackMatrix;
   public:
     // Constructor - receives two inputs: elements array, column index array
     // builds the ellpack
-    ellpackSparseMatrix(const vector<T> & elementVector, const vector<size_t> & colIndex);
+    EllpackSparseMatrix(const vector<T> & elementVector, const vector<size_t> & colIndex);
    
     // Destructor
-    ~ellpackSparseMatrix()
+    ~EllpackSparseMatrix()
  
     // Print Matrix
     void printMatrix();

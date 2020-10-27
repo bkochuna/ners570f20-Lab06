@@ -5,16 +5,16 @@ using namespace std;
 using namespace SpMV;
 
 template <class fp_type>
-ellpackSparseMatrix<fp_type>::ellpackSparseMatrix(const vector<fp_type> elementVector, const vector<size_t> colIndex)
+EllpackSparseMatrix<fp_type>::EllpackSparseMatrix(const vector<fp_type> elementVector, const vector<size_t> colIndex)
 {
-  cout << "Called ellpackSparseMatrix<fp_type> constructor" << endl;
+  cout << "Called EllpackSparseMatrix<fp_type> constructor" << endl;
 
-  _ellpackMatrix = ellpackSparseMatrix;
+  _ellpackMatrix = EllpackSparseMatrix;
 
 }
 
 template <class fp_type>
-ellpackSparseMatrix<fp_type>::~ellpackSparseMatrix()
+EllpackSparseMatrix<fp_type>::~EllpackSparseMatrix()
 {
-  cout << "Called ellpackSparseMatrix<fp_type> destructor" << endl;
+  cout << "Called EllpackSparseMatrix<fp_type> destructor" << endl;
 }
