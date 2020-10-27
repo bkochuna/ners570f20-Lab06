@@ -14,7 +14,7 @@ class EllpackSparseMatrix {
     EllpackSparseMatrix(const vector<T> & elementVector, const vector<size_t> & colIndex) : public SparseMatrix<T>;
    
     // Destructor
-    ~EllpackSparseMatrix()
+    ~EllpackSparseMatrix();
  
     // Print Matrix
     void printMatrix();
