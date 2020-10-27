@@ -10,7 +10,7 @@ class cscSparseMatrix : public SpMV::SparseMatrix<fp_type>
         void _unAssemble()
         { cout << "cscSpMat::unAssemble" << endl; }
     public:
-        typedef typename SpMv::SparseMatrix<fp_type>::vec_ptr vec_ptr;
+        typedef typename SpMV::SparseMatrix<fp_type>::vec_ptr vec_ptr;
 
         //Constructor - receives three inputs: element, col pointer, row idx vectors
         //Builds CSC sparce matrix based on the input information
