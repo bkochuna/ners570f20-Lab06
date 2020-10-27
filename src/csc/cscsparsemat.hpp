@@ -15,12 +15,12 @@ class cscSparseMatrix : public SpMV::SparseMatrix<fp_type>
         //Constructor - receives three inputs: element, col pointer, row idx vectors
         //Builds CSC sparce matrix based on the input information
         cscSparseMatrix(const size_t nrows, const size_t ncols) :
-            spMV::SparseMatrix<fp_type>::SparseMatrix(nrows,ncols)
+            SpMV::SparseMatrix<fp_type>::SparseMatrix(nrows,ncols)
             { cout << "cscSpMat::constructor" << endl;}
 
         // Assembles the matrix
         void assembleStorage()
-        { cout << "cscSpMat::matVec" << endl; return NULL; }
+        { cout << "cscSpMat::matVec" << endl; }
 
         // Performs matrix-vector multiplication
         vec_ptr matVec(const vec_ptr x) override
@@ -29,8 +29,4 @@ class cscSparseMatrix : public SpMV::SparseMatrix<fp_type>
         // Csc sparse matrix destructor
         ~cscSparseMatrix()
         { cout << "cscSpMat::destructor" << endl;}
-
-        //Print the csc_matrix
-        void printMatrix();
-
 };
