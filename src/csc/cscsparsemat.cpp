@@ -9,6 +9,7 @@ template class cscSparseMatrix<double>;
 
 template <class fp_type>
 
+//This class defines a sparse matrix in the CSC format
 class cscSparsMatrix : public SpMV::SparsMatrix<fp_type>
 {
     private:
