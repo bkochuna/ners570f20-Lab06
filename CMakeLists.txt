@@ -37,6 +37,13 @@ if(CMAKE_CXX_COMPILER_ID MATCHES Clang)
   list(APPEND CXX_FLAGS_RELEASE "-O3" "-Wno-unused")
 endif()
 
+SET(CMAKE_BUILD_TYPE "Debug")
+
+if (NOT CMAKE_BUILD_TYPE)
+	message(STATUS "No build type selected, default to Release")
+	set(CMAKE_BUILD_TYPE "Release")
+endif()
+
 # target_compile_option(ners570_SpMV
 #   PRIVATE
 #     ${CXX_FLAGS}
