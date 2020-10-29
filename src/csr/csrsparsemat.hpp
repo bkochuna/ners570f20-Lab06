@@ -1,34 +1,50 @@
-#include <iostream>
+#ifndef _CSR_SPARSE_MATRIX_HEADER_
+#define _CSR_SPARSE_MATRIX_HEADER_
 
 #include "../sparsemat.hpp"
 
+#include <iostream>
+
 using namespace std;
 
-template <class fp_type>
-class csrSparseMatrix : public SpMV::SparseMatrix<fp_type>
-{
+namespace SpMV {
+
+
+//Concrete implementation of the SparseMatrix abstract class using coordinate
+//list formatting for the stored sparse matrix
+template<typename fp_type>
+class CsrSparseMatrix : public SparseMatrix<fp_type> {
     private:
-        void _unAssemble()
-	{ cout << "csrSpMat::unAssemble" << endl; }
+        // Vector of elements of sparse matrix. Element at index i of
+        // csr_matrix belongs in matrix position with row number given by index
+        // i of row_idx and column number given by index i of col_idx
+        vector<fp_type> coo_matrix;
+        vector<int> row_idx, col_idx;
     public:
-	typedef typename SpMV::SparseMatrix<fp_type>::vec_ptr vec_ptr;
-	
-        //Constructor - receives two inputs: element, number of rows and number of columns
-        //Builds CSR sparse matrix based on the input information
-        csrSparseMatrix(const size_t nrows, const size_t ncols) :
-	    SpMV::SparseMatrix<fp_type>::SparseMatrix(nrows, ncols)
-            { cout << "csrSpMat::constructor" << endl;}
+        // Define an alias for the gross type that templating produces
+        typedef typename SparseMatrix<fp_type>::vec_ptr vec_ptr;
 
-	// Assembles the matrix
-	void assembleStorage()
-	{ cout << "csrSpMat::assembleStorage" << endl;}
+        //Constructor - receives two inputs: number of rows and numer of
+        //columns, constructs parent class
+        CsrSparseMatrix(const size_t nrows, const size_t ncols);
+        
+        //Deconstructor - no dynamic memory to manage, no need to implement
+        //anything
+        ~CsrSparseMatrix();
 
-	// Performs matrix-vector multiplication
-	vec_ptr matVec(const vec_ptr x) override
-	{ cout << "csrSpMat::matVec" << endl; return NULL; }
+        //Implementation of assembling matrix storage in CSR format
+        //from _buildCoeff member variable of parent class
+        void assembleStorage() override;
 
-	// Csr Sparse Matrix destructor
-        ~csrSparseMatrix()
-        { cout << "csrSpMat::destructor" << endl; }
+        //Implementation of unassembling matrix storage in CSR format
+        //from _buildCoeff member variable of parent class
+        void _unAssemble() override;
+
+        //Implementation of matrix vector muliplication
+        vec_ptr  matVec(const vec_ptr x) override;
 
 };
+
+} // end SpMV naemspace
+
+#endif
