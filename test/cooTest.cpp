@@ -24,6 +24,7 @@ int main() {
 
     y = A.matVec(std::make_shared<vector<double>>(x));
 
+    cout << "For x=1 (n=100) :" << y->size() << endl;
     for(int i=0;i<n;i++){
 	    cout << "y_" << i << " : " << y->at(i) << endl;
     };
