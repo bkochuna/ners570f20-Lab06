@@ -1,4 +1,4 @@
-nclude <iostream>
+#include <iostream>
 #include "coosparsemat.hpp"
 #include "sparsemat.hpp"
 
