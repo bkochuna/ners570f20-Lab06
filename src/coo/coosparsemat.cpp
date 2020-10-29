@@ -93,6 +93,11 @@ template<typename fp_type>
 typename CooSparseMatrix<fp_type>::vec_ptr
 CooSparseMatrix<fp_type>::matVec(const vec_ptr x) {
 
+    if ( this->_state != assembled ) {
+        throw runtime_error("Error: matVec can only be called on an assembled "
+                            "matrix");
+    }
+
     unsigned int size = coo_matrix.size();
     int i,j;
 
