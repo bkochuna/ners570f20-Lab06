@@ -1,9 +1,10 @@
 #include <iostream>
-#include "sparsemat.hpp"
-#include "coosparsemat.hpp"
+#include "../src/sparsemat.hpp"
+#include "../src/coo/coosparsemat.hpp"
 
 using namespace std;
 
+/*
 template <class fp_type>
 class testCOOSpMat : public COOSparseMatrix<fp_type>
 {
@@ -39,6 +40,7 @@ class testCOOSpMat : public COOSparseMatrix<fp_type>
             this->_state = SpMV::building;
         }
 };
+*/
 
 
 int main() {
@@ -47,7 +49,7 @@ int main() {
 
        cout << "Before constructor" << endl;
        //SpMV::SparseMatrix<double> A(100,100);
-       testCOOSpMat<double> A(100,100);
+       SpMV::CooSparseMatrix<double> A(100,100);
 
        A.setCoefficient(1,1,1.0);
        A.setCoefficient(1,2,2.0);
@@ -56,6 +58,7 @@ int main() {
        A.assembleStorage();
 
        A.setCoefficient(1,1,4.0);
+
        A.assembleStorage();
 
        cout << "After constructor" << endl;
