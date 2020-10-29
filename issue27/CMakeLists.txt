@@ -1,4 +1,6 @@
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-set(COOsource COOsparsemat.cpp)
+set(SOURCES coosparsemat)
+
+add_executable(${SOURCES} ${SOURCES}.cpp)
 
