@@ -1,6 +1,6 @@
 #include <exception>
 #include <iostream>
-#include "../sparsemat.hpp"
+
 #include "coosparsemat.hpp"
 
 
@@ -102,10 +102,6 @@ CooSparseMatrix<fp_type>::matVec(const vec_ptr x) {
     int i,j;
 
     vector<fp_type> y(this->_nrows, 0);
-    for(unsigned int n=0;n<size;n++){
-        i=row_idx.at(n);
-	y.at(i) = 0;
-    };	
 
     for (unsigned int n=0; n<size; n++){
         i=row_idx.at(n);

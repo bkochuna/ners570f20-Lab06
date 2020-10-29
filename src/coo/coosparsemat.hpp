@@ -20,6 +20,11 @@ class CooSparseMatrix : public SpMV::SparseMatrix<fp_type> {
         // i of row_idx and column number given by index i of col_idx
         vector<fp_type> coo_matrix;
         vector<int> row_idx, col_idx;
+
+        //Implementation of unassembling matrix storage in COO format
+        //from _buildCoeff member variable of parent class
+        void _unAssemble() override;
+        
     public:
         // Define an alias for the gross type that templating produces
         typedef typename SpMV::SparseMatrix<fp_type>::vec_ptr vec_ptr;
@@ -35,10 +40,6 @@ class CooSparseMatrix : public SpMV::SparseMatrix<fp_type> {
         //Implementation of assembling matrix storage in COO format
         //from _buildCoeff member variable of parent class
         void assembleStorage() override;
-
-        //Implementation of unassembling matrix storage in COO format
-        //from _buildCoeff member variable of parent class
-        void _unAssemble() override;
 
         //Implementation of matrix vector muliplication
         vec_ptr  matVec(const vec_ptr x) override;
