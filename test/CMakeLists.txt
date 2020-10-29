@@ -16,3 +16,7 @@ add_test(csrTest csrTest)
 add_executable(cscTest cscTest.cpp)
 target_link_libraries(cscTest SpMV)
 add_test(cscTest cscTest)
+
+add_executable(cooTest cooTest.cpp)
+target_link_libraries(cooTest SpMV)
+add_test(cooTest cooTest)
