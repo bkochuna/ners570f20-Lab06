@@ -7,13 +7,13 @@
 
 using namespace std;
 
-namespace SpMV {
+//namespace SpMV {
 
 
 //Concrete implementation of the SparseMatrix abstract class using coordinate
 //list formatting for the stored sparse matrix
 template<typename fp_type>
-class CooSparseMatrix : public SparseMatrix<fp_type> {
+class CooSparseMatrix : public SpMV::SparseMatrix<fp_type> {
     private:
         // Vector of elements of sparse matrix. Element at index i of
         // coo_matrix belongs in matrix position with row number given by index
@@ -22,7 +22,7 @@ class CooSparseMatrix : public SparseMatrix<fp_type> {
         vector<int> row_idx, col_idx;
     public:
         // Define an alias for the gross type that templating produces
-        typedef typename SparseMatrix<fp_type>::vec_ptr vec_ptr;
+        typedef typename SpMV::SparseMatrix<fp_type>::vec_ptr vec_ptr;
 
         //Constructor - receives two inputs: number of rows and numer of
         //columns, constructs parent class
@@ -45,6 +45,6 @@ class CooSparseMatrix : public SparseMatrix<fp_type> {
 
 };
 
-} // end SpMV naemspace
+//} // end SpMV naemspace
 
 #endif
