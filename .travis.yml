@@ -1,6 +1,13 @@
 language: cpp
 os: linux
 
+jobs:
+  include:
+    - dist: trusty
+    - dist: xenial
+    - dist: bionic
+    - dist: focal
+
 script:
   - echo $PWD && mkdir ../build && cd ../build && echo $PWD
   - cmake ${TRAVIS_BUILD_DIR}
