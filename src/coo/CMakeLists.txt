@@ -1,4 +1,4 @@
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-set(SOURCES coosparsemat.cpp)
+set(SOURCES COOsparsemat.cpp)
 add_library(coo ${SOURCES})
