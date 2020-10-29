@@ -1,5 +1,6 @@
 #include <iostream>
-#include "sparsemat.hpp"
+
+#include "../sparsemat.hpp"
 
 using namespace std;
 

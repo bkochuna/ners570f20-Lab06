@@ -1,6 +1,6 @@
 #include <exception>
 #include <iostream>
-#include "../sparsemat.hpp"
+
 #include "coosparsemat.hpp"
 
 
