@@ -4,7 +4,7 @@
 using namespace std;
 
 template <class fp_type>
-ellSparseMat::ellSparseMat(const size_t nrwos, const size_t ncols) : SpMV::_nrows(nrows), SpMV::_ncols(ncols), SpMV::_state(initialized) {
+ellSparseMat::ellSparseMat(const size_t nrows, const size_t ncols) : SpMV::_nrows(nrows), SpMV::_ncols(ncols), SpMV::_state(initialized) {
   cout << "called Ellpack constructor" << endl;
 }
 
