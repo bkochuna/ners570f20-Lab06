@@ -10,14 +10,13 @@ class ellSparseMat : public SpMV::SparseMatrix<fp_type>
 
     ~ellSparseMat();
 
-     virtual void assembleStorage()=0;
+     virtual void assembleStorage();
 
-     virtual vec_ptr matVec(const vec_ptr x)=0;
+     virtual vec_ptr matVec(const vec_ptr x);
 
-     virtual vec_ptr matVec(const fp_type* x) final;
 
   protected:
 
-     virtual void _unAssemble()=0;
+     virtual void _unAssemble();
 
 }

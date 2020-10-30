@@ -15,11 +15,8 @@ void ellSparseMat::assembleStorage(){
 }
 
 void ellSparseMat::vec_ptr matVec(const vec_ptr x) {
-  cout << "called ellpack matVec"
+  cout << "called ellpack matVec" << endl;
 }
 
-void ellSparseMat::vec_ptr matVec(const fp_type* x) {
-  cout << "called ellpack matVec overload"
-}
 
 
