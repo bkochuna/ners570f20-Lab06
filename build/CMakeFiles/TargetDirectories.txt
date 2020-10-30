@@ -1,0 +1,11 @@
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/CMakeFiles/rebuild_cache.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/CMakeFiles/edit_cache.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/CMakeFiles/test.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/src/CMakeFiles/rebuild_cache.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/src/CMakeFiles/edit_cache.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/src/CMakeFiles/test.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/src/CMakeFiles/SpMV.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/test/CMakeFiles/test.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/test/CMakeFiles/rebuild_cache.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/test/CMakeFiles/edit_cache.dir
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/build/test/CMakeFiles/testSparseMatrix.dir

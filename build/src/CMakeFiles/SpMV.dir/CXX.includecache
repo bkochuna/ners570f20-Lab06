@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/src/sparsemat.cpp
+exception
+-
+iostream
+-
+sparsemat.hpp
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/src/sparsemat.hpp
+
+/Users/wutingshiuan/NERS570/ners570f20-Lab06/src/sparsemat.hpp
+cstddef
+-
+map
+-
+memory
+-
+utility
+-
+vector
+-
+

@@ -28,13 +28,15 @@ virtual void EllpackIndexMatrix::assembleStorage();
 	vvEllpackMatrix.allocate(_nrows);
 	vvEllpackIndexMatrix.allocate(_nrows);
 
+	// For each entry in the pair, data map
 	for (size_t iI = 0; iI < iSize; iI++)
 	{
-		size_t iRow = _buildCoeff[iI][0][0];
-		size_t iCol = _buildCoeff[iI][0][1];
-		fp_type dData = _buildCoeff[iI][1];
-		vvEllpackMatrix[iRow].push_back(dData);
-		vvEllpackIndexMatrix[iRow].push_back(iCol);
+		size_t iRow = _buildCoeff[iI][0][0]; //entry, 0=pair, 0=row
+		size_t iCol = _buildCoeff[iI][0][1]; //entry, 0=pair, 1=col
+		fp_type dData = _buildCoeff[iI][1]; //entry, 1=data
+
+		vvEllpackMatrix[iRow].push_back(dData); //add data to data matrix at row iRow
+		vvEllpackIndexMatrix[iRow].push_back(iCol); // add column informaton to index matrix at row iRow
 	}
 };
 
