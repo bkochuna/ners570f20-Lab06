@@ -4,27 +4,26 @@
 using namespace std;
 
 template <typename fp_type>
-class EllpackSparseMatrix {
+class EllpackSparseMatrix
+{
 
-  private:
+private:
     const
-    vector<vector<fp_type>> EllpackMatrix;
-    vector<vector<fp_type>> EllpackIndexMatrix;
-  public:
+    vector<vector<fp_type>> vvEllpackMatrix;
+    vector<vector<size_t>> vvEllpackIndexMatrix;
+public:
     // Constructor - receives two inputs: elements array, column index array
     // builds the ellpack
-    EllpackSparseMatrix(const size_t nrows, const size_t ncols);
-    void setCoefficient(const size_t row, const size_t col, fp_type aij);
+    EllpackSparseMatrix(const size_t nrows, const size_t ncols) : SpMv::SparseMatrix<fp_type>::SparseMatrix(nrows, ncols);
+    ~EllpackSparseMatrix();
 
-    fp_type getCoefficient(const size_t row, const size_t col);
-   
-    // Destructor
-    ~EllpackSparseMatrix()
- 
-    // Print Matrix
-    void printMatrix();
-    
-    // Return ellpack matrix
-    vector<vector<T>> getEllpackMatrix();
+    virtual void assembleStorage();
+
+    virtual vec_ptr matVec(const vec_ptr x);
+
+
+protected:
+
+    virtual void _unAssemble();
 
 };
